@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Auditoría de Cumplimiento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 min-h-screen">
+    <nav class="bg-blue-800 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold"><i class="fas fa-shield-alt mr-2"></i>AuditPro Dashboard</h1>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-4 lg:p-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Columna Izquierda: Checklist -->
+        <section class="lg:col-span-2 space-y-6">
+            <!-- Panel de Progreso General -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-4 text-gray-700">Progreso Global de Cumplimiento</h2>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm font-medium text-blue-800" id="progress-text">0% Completado</span>
+                    <span class="text-sm font-medium text-gray-500"><span id="completed-tasks">0</span>/<span id="total-tasks">9</span> Tareas</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-4">
+                    <div id="progress-bar" class="bg-blue-600 h-4 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Lista de Verificación -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <h2 class="text-xl font-semibold mb-6 text-gray-700">Lista de Verificación (Checklist)</h2>
+                
+                <div class="space-y-6">
+                    <!-- Categoría 1 -->
+                    <div>
+                        <h3 class="font-medium text-lg text-slate-800 mb-3 border-b pb-2"><i class="fas fa-lock text-blue-500 mr-2"></i>Políticas de Seguridad</h3>
+                        <div class="space-y-3 pl-2">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Contraseñas cambiadas cada 90 días</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Autenticación de dos factores (2FA) activa</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Antivirus actualizado en todos los equipos</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 2 -->
+                    <div>
+                        <h3 class="font-medium text-lg text-slate-800 mb-3 border-b pb-2"><i class="fas fa-database text-blue-500 mr-2"></i>Protección de Datos</h3>
+                        <div class="space-y-3 pl-2">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Copias de seguridad diarias configuradas</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Datos de clientes encriptados en tránsito y reposo</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Política de privacidad publicada y actualizada</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Categoría 3 -->
+                    <div>
+                        <h3 class="font-medium text-lg text-slate-800 mb-3 border-b pb-2"><i class="fas fa-id-badge text-blue-500 mr-2"></i>Controles de Acceso</h3>
+                        <div class="space-y-3 pl-2">
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Registros de entrada a la sala de servidores</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Cuentas de exempleados desactivadas</span>
+                            </label>
+                            <label class="flex items-center space-x-3 cursor-pointer group">
+                                <input type="checkbox" class="task-check form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500 transition duration-150">
+                                <span class="text-gray-700 group-hover:text-blue-800 transition">Permisos revisados por departamento este trimestre</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Columna Derecha: Hallazgos -->
+        <section class="space-y-6">
+            <!-- Formulario de Hallazgos -->
+            <div class="bg-white rounded-lg shadow p-6 border-t-4 border-red-500">
+                <h2 class="text-xl font-semibold mb-4 text-gray-700">Registrar Hallazgo</h2>
+                <form id="finding-form" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Descripción del problema</label>
+                        <input type="text" id="finding-desc" required class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500" placeholder="Ej: Puerta sin candado">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nivel de Riesgo</label>
+                        <select id="finding-risk" class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                            <option value="Alto">Alto</option>
+                            <option value="Medio">Medio</option>
+                            <option value="Bajo">Bajo</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded transition duration-200">
+                        Añadir Hallazgo
+                    </button>
+                </form>
+            </div>
+
+        </section>
+    </main>
+    <script src="script.js"></script>
+   
+</body>
+</html>
